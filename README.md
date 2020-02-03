@@ -1,0 +1,2 @@
+# Text-Based-Captcha
+The project was to develop text based captcha in python. In this project I used the python GUI library Tkinter and python image library Pillow(PIL).For storing data in  database I used python SQLlite library which it store the user id and password . If the user enter the correct captcha then only it will allow to enter into the next page otherwise it will ask again to enter the captcha which is different from the previous captcha.
