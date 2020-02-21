@@ -8,21 +8,25 @@ master.title("Text Based Captcha")
 regno=StringVar()
 password=StringVar()
 def check():
+ try:
+    
+    if len(password.get())==0 and len(password.get())<6:
+        tkinter.messagebox.showinfo("INVALID INPUT"," INVALID PASSWORD") 
+    elif "8H72C"==cap.get():
+        tkinter.messagebox.showinfo("WELCOME","Welcome to our site")
+    else:
+        tkinter.messagebox.showinfo("Wrong Captcha","Wrong Captcha")
     regno1=regno.get()
     password1=password.get()
-    x=sqlite3.connect("q1.db")
-    #x.execute("Create table a1(regno text, password text)")
-    x.execute("insert into a1(regno, password) values(?,?)",(regno1 , password1))
-    y=x.execute("Select * from a1")
+    x=sqlite3.connect("w1.db")
+    #x.execute("Create table b1(regno text, password text)")
+    x.execute("insert into b1(regno, password) values(?,?)",(regno1 , password1))
+    y=x.execute("Select * from b1")
     for i in y:
         print(i)
     x.commit()
-    if "8H72C"==cap.get():
-        tkinter.messagebox.showinfo("WELCOME","Welcome to our site")
-    else:
-        photo=PhotoImage(file="3.png")
-        label3=Label(frame2,image=photo)
-        label3.grid(row=2, columnspan=2)
+ except tkinter.TclError:
+        tkinter.messagebox.showinfo("INVALID","INVALID DATA")
 #FRAME1
 frame1=Frame(master)
 frame1.pack()
